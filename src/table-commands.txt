@@ -1,0 +1,6 @@
+create table fd(table_name varchar(50), det varchar(50), dep varchar(50), primary key(table_name,det,dep));
+create table student(name varchar(50), course varchar(50) , roll varchar(50));
+insert into fd values('student','roll','name');
+insert into student values('a','631','1');
+
+update customer set id = '10' where name = 'soumya';

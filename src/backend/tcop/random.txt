@@ -1,0 +1,28 @@
+if(inp_query[i]==';')
+			{
+				//elog(NOTICE,"no where condition");
+					SPI_connect();
+				    // To retrieve column names of the table
+					sprintf(fd_query, "select * from %s;", tname);
+					//elog(NOTICE, fd_query);
+					int ret = SPI_exec(fd_query, 0);
+					int procx = SPI_processed;
+
+	 
+
+					if (ret > 0 && SPI_tuptable != NULL)
+				    {
+				        TupleDesc tupdesc = SPI_tuptable->tupdesc;
+				        SPITupleTable *tuptable = SPI_tuptable;
+				        int jx; char cck[8192];
+						        for (jx = 0; jx < procx; jx++)
+						        {
+						            HeapTuple tuple = tuptable->vals[jx];
+						            
+						            bzero(cck, 8192);
+						            sprintf(cck, SPI_getvalue(tuple, tupdesc, 1));
+				   				 }
+								 
+					}
+					
+					SPI_finish();

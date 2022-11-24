@@ -1,0 +1,28 @@
+CS 631: Project Proposal
+
+
+
+Group Members: 
+
+Bhawna Chelani [22M0751]
+
+Himali Saini [22M0757]
+
+Soumya Gupta [22M0773]
+
+
+
+Project Title: Functional Dependency support for Postgres 
+
+Goals:
+
+To implement Functional Dependency support for Postgres for insertion and updation, including all data types.
+
+Implementation Plan:
+
+We have got the basic code from the seniors.In their implementation they are checking the violation of the Functional dependencies during insertion. 
+We will implement the functional dependency support for updation as well. We will provide support for all data types.To access the functional dependencies we will store them in a table with a defined schema which
+will store the table's name and the columns corresponding to the functional dependency, i.e determinant and dependent.
+We plan to add our code for violation checking in the exec_simple_query function, after the query string has been parsed. 
+We will extract the first word of the query and execute our code only if it is an insert/update query. We will make use of the SPI functionality to access the executer and fetch required information.
+In case the user enters the value or updates the existing value that violates any functional dependency, an error will be raised. For this, we are adding an error code in the file errcodes.h
